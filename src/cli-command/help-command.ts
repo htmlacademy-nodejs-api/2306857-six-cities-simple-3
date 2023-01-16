@@ -7,8 +7,8 @@ export default class HelpCommand implements CliCommandInterface {
   public async execute(): Promise<void> {
     console.log(`
         ${chalk.green.bold(
-          'Программа для подготовки данных для REST API сервера'
-        )}
+    'Программа для подготовки данных для REST API сервера'
+  )}
 
         ${chalk.yellow.italic('Пример:')} cli.js --<command> [--arguments]
 
