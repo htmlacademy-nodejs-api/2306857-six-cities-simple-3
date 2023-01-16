@@ -1,0 +1,92 @@
+{
+    "api": {
+      "titles": [
+        "The Yama Hotel",
+        "The SIS Kata Resort",
+        "The Palmery Resort",
+        "Andakira Hotel",
+        "Selina Serenity Rawai Phuket"
+      ],
+      "descriptions": [
+        "Rated with 4 stars, this high-quality property provides guests with access to restaurant and outdoor pool on-site.",
+        "Rated with 5 stars, this high-quality property provides guests with access to massage, restaurant and fitness center on-site.",
+        "Rated with 4 stars, this high-quality property provides guests with access to restaurant, fitness center and outdoor pool on-site.",
+        "Rated with 4 stars, this high-quality property provides guests with access to restaurant, indoor pool and outdoor pool on-site.",
+        "Rated with 5 stars, this high-quality property provides guests with access to fitness center and outdoor pool on-site."
+      ],
+      "cities": [
+      "Paris",
+      "Cologne",
+      "Brussels",
+      "Amsterdam",
+      "Hamburg",
+      "Dusseldorf"
+    ],
+      "preview": [
+        "preview1.jpg",
+        "preview2.jpg",
+        "preview3.jpg",
+        "preview4.jpg",
+        "preview5.jpg"
+      ],
+      "photos": [
+        "photo1.jpg",
+        "photo2.jpg",
+        "photo3.jpg",
+        "photo4.jpg",
+        "photo5.jpg",
+        "photo6.jpg"
+      ],
+      "typeAccommodation": [
+        "apartment",
+        "house",
+        "room",
+        "hotel"
+      ],
+      "facilities": [
+        "Breakfast",
+        "Air conditioning",
+        "Laptop friendly workspace",
+        "Baby seat",
+        "Washer",
+        "Towels",
+        "Fridge"
+      ],
+      "users": [
+        "John",
+        "Mike",
+        "Jack",
+        "London",
+        "Alex"
+      ],
+      "emails": [
+        "john@example.com",
+        "mike@example.com",
+        "jack@example.com",
+        "london@example.com",
+        "alex@example.com"
+      ],
+      "avatars": [
+        "default1.png",
+        "default2.jpg",
+        "default3.png",
+        "default4.jpg",
+        "default5.png"
+      ],
+      "passwords": [
+        "q1w2e3r4t5",
+        "r413wetwefsd",
+        "y234fsfsfsf",
+        "6tsfsdfsdf",
+        "5sddgae3333"
+      ],
+      "coordinates": [
+        "48.85661, 2.351499",
+        "50.938361, 6.959974",
+        "50.846557, 4.351697",
+        "52.370216, 4.895168",
+        "53.550341, 10.000654",
+        "51.225402, 6.776314"
+      ]
+    }
+  }
