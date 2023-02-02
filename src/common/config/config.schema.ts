@@ -28,4 +28,4 @@ export const configSchema = convict<ConfigSchema>({
     env: 'DB_HOST',
     default: '127.0.0.1'
   }
-})
+});
