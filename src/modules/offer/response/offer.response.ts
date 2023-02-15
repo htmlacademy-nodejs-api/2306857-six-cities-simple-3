@@ -1,9 +1,14 @@
-import {Expose} from 'class-transformer';
+import {Expose, Type} from 'class-transformer';
 import { Facilities } from '../../../types/facilities.enum';
+import UserResponse from '../../user/response/user.response.js';
 
 export default class OfferResponse {
+
+@Expose()
+  public id!: string;
+
   @Expose()
-  public title!: string;
+public title!: string;
 
   @Expose()
   public description!: string;
@@ -43,4 +48,10 @@ export default class OfferResponse {
 
   @Expose()
   public coordinates!: string[];
+
+  @Expose({ name: 'userId'})
+  @Type(() => UserResponse)
+  public user!: UserResponse;
 }
+
+

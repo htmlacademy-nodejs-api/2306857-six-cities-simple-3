@@ -1,7 +1,6 @@
 import { Accommodation } from '../../../types/accommodation.enum';
 import { City } from '../../../types/city.enum';
 import { Facilities } from '../../../types/facilities.enum';
-import { User } from '../../../types/user.type';
 
 export default class UpdateOfferDto {
   public title?: string;
@@ -17,6 +16,5 @@ export default class UpdateOfferDto {
   public numberGuests?: number;
   public rentalPrice?: number;
   public facilities?: Facilities[];
-  public user?: User;
   public coordinates?: string[];
 }

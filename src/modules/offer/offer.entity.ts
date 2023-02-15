@@ -65,7 +65,7 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     ref: UserEntity,
     required: true
   })
-  public user!: Ref<UserEntity>;
+  public userId!: Ref<UserEntity>;
 
   @prop({type: () => String, required: true})
   public coordinates!: string[];
