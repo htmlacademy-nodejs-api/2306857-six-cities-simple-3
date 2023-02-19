@@ -24,7 +24,7 @@ export default class OfferService implements OfferServiceInterface {
   }
 
   public async findById(offerId: string): Promise<DocumentType<OfferEntity> | null> {
-    return this.offerModel.findById(offerId).populate(['user']).exec();
+    return this.offerModel.findById(offerId).populate(['userId']).exec();
   }
 
   public async find(count?: number): Promise<DocumentType<OfferEntity>[]> {
@@ -32,14 +32,14 @@ export default class OfferService implements OfferServiceInterface {
     return this.offerModel
       .find({}, {}, {limit})
       .sort({createdAt: SortType.Down})
-      .populate('user')
+      .populate('userId')
       .exec();
   }
 
   public async updateById(offerId: string, dto: UpdateOfferDto): Promise<DocumentType<OfferEntity> | null> {
     return this.offerModel
       .findByIdAndUpdate(offerId, dto, {new: true})
-      .populate('user')
+      .populate('userId')
       .exec();
   }
 
@@ -54,5 +54,10 @@ export default class OfferService implements OfferServiceInterface {
       .findByIdAndUpdate(offerId, {'$inc': {
         commentCount: 1,
       }}).exec();
+  }
+
+  public async exists(documentId: string): Promise<boolean> {
+    return (await this.offerModel
+      .exists({_id: documentId})) !== null;
   }
 }
