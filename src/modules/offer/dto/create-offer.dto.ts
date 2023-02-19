@@ -1,7 +1,7 @@
 import { Accommodation } from '../../../types/accommodation.enum.js';
 import { City } from '../../../types/city.enum.js';
 import { Facilities } from '../../../types/facilities.enum.js';
-import {IsArray, IsDateString, IsEnum, IsInt, IsMongoId, Max, MaxLength, Min, MinLength, IsBoolean, ArrayMinSize, ArrayMaxSize, IsString} from 'class-validator';
+import {IsArray, IsDateString, IsEnum, IsInt, Max, MaxLength, Min, MinLength, IsBoolean, ArrayMinSize, ArrayMaxSize, IsString} from 'class-validator';
 
 export default class CreateOfferDto {
   @MinLength(10, {message: 'Minimum title length must be 10'})
@@ -54,7 +54,6 @@ export default class CreateOfferDto {
   @IsEnum(Facilities, {each: true, message: 'type must be Breakfast/Air conditioning/Laptop friendly workspace/Baby seat/Washer/Towels/Fridge'})
   public facilities!: Facilities[];
 
-  @IsMongoId({message: 'userId field must be valid an id'})
   public userId!: string;
 
   @IsArray({ message: 'Field coordinates must be an array' })
