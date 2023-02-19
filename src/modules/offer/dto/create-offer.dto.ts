@@ -51,7 +51,7 @@ export default class CreateOfferDto {
   public rentalPrice!: number;
 
   @IsArray({ message: 'Field facilities must be an array' })
-  @IsEnum(Facilities, {message: 'type must be Breakfast/Air conditioning/Laptop friendly workspace/Baby seat/Washer/Towels/Fridge'})
+  @IsEnum(Facilities, {each: true, message: 'type must be Breakfast/Air conditioning/Laptop friendly workspace/Baby seat/Washer/Towels/Fridge'})
   public facilities!: Facilities[];
 
   @IsMongoId({message: 'userId field must be valid an id'})
