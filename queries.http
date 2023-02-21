@@ -1,13 +1,13 @@
 # Предложения
 
-## Получить список офферов
+## Список предложений по аренде
 
 GET http://localhost:31332/offers HTTP/1.1
 Content-Type: application/json
 
 ###
 
-## Показать оффер по идентификатору
+## Детальная информация по предложению
 
 GET http://localhost:31332/offers/63eca659073846659f7e3add HTTP/1.1
 Content-Type: application/json
@@ -15,7 +15,7 @@ Content-Type: application/json
 ###
 
 
-## Создание оффера
+## Создание нового предложения
 
 POST http://localhost:31332/offers HTTP/1.1
 Content-Type: application/json
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 ###
 
-## Удаление оффера
+## Удаление предложения по аренде
 
 DELETE http://localhost:31332/offers/63ecac4f269ebcc43004c25e HTTP/1.1
 
@@ -59,7 +59,7 @@ Content-Type: image/png
 
 ###
 
-## Обновление объявления
+## Редактирование предложения
 
 PATCH http://localhost:31332/offers/63eca659073846659f7e3ad8 HTTP/1.1
 Content-Type: application/json
@@ -72,7 +72,7 @@ Content-Type: application/json
 
 # Пользователи
 
-## Регистрация пользователя
+## Создание нового пользователя
 
 POST http://localhost:31332/users/register HTTP/1.1
 Content-Type: application/json
@@ -86,7 +86,7 @@ Content-Type: application/json
 
 ###
 
-## Авторизация пользователя
+## Вход в закрытую часть приложения
 
 POST http://localhost:31332/users/login HTTP/1.1
 Content-Type: application/json
@@ -113,7 +113,7 @@ Content-Type: image/png
 
 ###
 
-## Проверка токена пользователя
+## Проверка состояния пользователя
 GET http://localhost:31332/users/login HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoiYXNkYWRAZ21haWwuY29tIiwiaWQiOiI2M2YwNzRiY2Y1YjRlN2Q0N2FjMTdkMzMiLCJpYXQiOjE2NzY4MTYyNzUsImV4cCI6MTY3Njk4OTA3NX0.4pnp962HRkpB5W-K6s5wVIuU_mywjvILfEWa_PaaoK8
 
@@ -121,7 +121,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoiYXNkYWRAZ21haWwuY29tIiwia
 
 # Комментарии
 
-## Создать комментарий
+## Добавление комментария
 POST http://localhost:31332/comments HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoiYXNkYWRAZ21haWwuY29tIiwiaWQiOiI2M2YwNzRiY2Y1YjRlN2Q0N2FjMTdkMzMiLCJpYXQiOjE2NzY4MTUzNjYsImV4cCI6MTY3Njk4ODE2Nn0.-Qay5ucvW9Mktieqgsp6NRPJHIhC2RZg_S4daRYcs60
@@ -134,7 +134,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoiYXNkYWRAZ21haWwuY29tIiwia
 
 ###
 
-## Список комментариев к офферу
+## Список комментариев для предложения
 GET http://localhost:31332/offers/63eca659073846659f7e3ad8/comments HTTP/1.1
 
 ###
