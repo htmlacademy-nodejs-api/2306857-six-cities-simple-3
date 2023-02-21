@@ -6,20 +6,20 @@ import {
   Min,
   Max
 } from 'class-validator';
+import { CommentLength, RatingRange } from '../comment.constant.js';
 
 export default class CreateCommentDto {
   @IsString({ message: 'text is required' })
-  @Length(5, 1024, { message: 'text min length is 5, max is 1024' })
+  @Length(CommentLength.min, CommentLength.max, { message: `text min length is ${CommentLength.min}, max is ${CommentLength.max}` })
   public text!: string;
 
   @IsMongoId({ message: 'offerId field must be a valid id' })
   public offerId!: string;
 
-  @IsMongoId({ message: 'userId field must be a valid id' })
   public userId!: string;
 
-  @IsInt({ message: 'Rating must be an integer' })
-  @Min(1, { message: 'Minimum rating is 1' })
-  @Max(5, { message: 'Maximum rating is 5}' })
+  @IsInt({ message: 'rating must be an integer' })
+  @Min(RatingRange.min, { message: `Minimum rating is ${RatingRange.min}` })
+  @Max(RatingRange.max, { message: `Maximum rating is ${RatingRange.max}` })
   public rating!: number;
 }
