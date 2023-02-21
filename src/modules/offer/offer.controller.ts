@@ -16,6 +16,9 @@ import { ValidateObjectIdMiddleware } from '../../common/middlewares/validate-ob
 import { ValidateDtoMiddleware } from '../../common/middlewares/validate-dto.middleware.js';
 import { DocumentExistsMiddleware } from '../../common/middlewares/document-exists.middleware.js';
 import { PrivateRouteMiddleware } from '../../common/middlewares/private-route.middleware.js';
+import {ConfigInterface} from '../../common/config/config.interface.js';
+import { UploadFileMiddleware } from '../../common/middlewares/upload-file.middleware.js';
+import UploadImageResponse from './response/upload-image.response.js';
 
 type ParamsGetOffer = {
   offerId: string;
@@ -25,10 +28,11 @@ type ParamsGetOffer = {
 export default class OfferController extends Controller {
   constructor(
     @inject(Component.LoggerInterface) logger: LoggerInterface,
+    @inject(Component.ConfigInterface) configService: ConfigInterface,
     @inject(Component.OfferServiceInterface) private readonly offerService: OfferServiceInterface,
     @inject(Component.CommentServiceInterface) private readonly commentService: CommentServiceInterface
   ) {
-    super(logger);
+    super(logger, configService);
 
     this.logger.info('Register routes for OfferController');
     this.addRoute({
@@ -62,6 +66,16 @@ export default class OfferController extends Controller {
       method: HttpMethod.Get,
       handler: this.getComments,
       middlewares: [new ValidateObjectIdMiddleware('offerId'), new DocumentExistsMiddleware(this.offerService, 'Offer', 'offerId'),]
+    });
+    this.addRoute({
+      path: '/:offerId/preview',
+      method: HttpMethod.Post,
+      handler: this.uploadImage,
+      middlewares: [
+        new PrivateRouteMiddleware(),
+        new ValidateObjectIdMiddleware('offerId'),
+        new UploadFileMiddleware(this.configService.get('UPLOAD_DIRECTORY'), 'preview'),
+      ]
     });
   }
 
@@ -116,6 +130,13 @@ export default class OfferController extends Controller {
   ): Promise<void> {
     const comments = await this.commentService.findByOfferId(params.offerId);
     this.ok(res, fillDTO(CommentResponse, comments));
+  }
+
+  public async uploadImage(req: Request<core.ParamsDictionary | ParamsGetOffer>, res: Response) {
+    const {offerId} = req.params;
+    const updateDto = { preview: req.file?.filename };
+    await this.offerService.updateById(offerId, updateDto);
+    this.created(res, fillDTO(UploadImageResponse, {updateDto}));
   }
 
 }

@@ -26,10 +26,10 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({required: true})
   public city!: City;
 
-  @prop({required: true})
+  @prop({required: true, default: ''})
   public preview!: string;
 
-  @prop({type: () => String,required: true})
+  @prop({type: () => String,required: true, default: ''})
   public photo!: string[];
 
   @prop()
