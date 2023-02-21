@@ -10,6 +10,7 @@ _`.editorconfig`, `.gitattributes`, `.gitignore`._
 
 ---
 
+
 ## Памятка
 
 ### 1. Зарегистрируйтесь на Гитхабе
