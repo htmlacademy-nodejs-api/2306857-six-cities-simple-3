@@ -105,18 +105,26 @@ export const transformProperty = (
 ) => {
   Object.keys(someObject)
     .forEach((key) => {
-      if (key === property) {
-        transformFn(someObject);
+      if (key === property)
+      {transformFn(someObject);
       } else if (isObject(someObject[key])) {
         transformProperty(property, someObject[key] as UnknownObject, transformFn);
       }
     });
 };
 
-export const transformObject = (properties: string[], staticPath: string, uploadPath: string, data:UnknownObject) => {
+export const transformObject = (
+  properties: string[],
+  staticPath: string,
+  uploadPath: string,
+  data: UnknownObject
+) => {
   properties
-    .forEach((property) => transformProperty(property, data, (target: UnknownObject) => {
-      const rootPath = DEFAULT_STATIC_IMAGES.includes(target[property] as string) ? staticPath : uploadPath;
-      target[property] = `${rootPath}/${target[property]}`;
-    }));
+    .forEach((property) =>
+      transformProperty(
+        property, data,
+        (target: UnknownObject) => {
+          const rootPath = DEFAULT_STATIC_IMAGES.includes(target[property] as string) ? staticPath : uploadPath;
+          target[property] = `${rootPath}/${target[property]}`;
+        }));
 };

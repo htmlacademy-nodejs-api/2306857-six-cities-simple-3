@@ -19,6 +19,7 @@ import { PrivateRouteMiddleware } from '../../common/middlewares/private-route.m
 import {ConfigInterface} from '../../common/config/config.interface.js';
 import { UploadFileMiddleware } from '../../common/middlewares/upload-file.middleware.js';
 import UploadImageResponse from './response/upload-image.response.js';
+import { RequestQuery } from '../../types/request-query.type.js';
 
 type ParamsGetOffer = {
   offerId: string;
@@ -79,10 +80,13 @@ export default class OfferController extends Controller {
     });
   }
 
-  public async index(_req: Request, res: Response): Promise<void> {
-    const offers = await this.offerService.find();
-    const offerResponse = fillDTO(OfferResponse, offers);
-    this.ok(res, offerResponse);
+  public async index(
+    { query }: Request<unknown, unknown, unknown, RequestQuery>,
+    res: Response
+  ): Promise<void> {
+    const offers = await this.offerService.find(query.limit);
+
+    this.ok(res, fillDTO(OfferResponse, offers));
   }
 
   public async create(
