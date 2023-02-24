@@ -52,6 +52,9 @@ public title!: string;
   @Expose({ name: 'userId'})
   @Type(() => UserResponse)
   public user!: UserResponse;
+
+  @Expose()
+  public commentCount!: number;
 }
 
 

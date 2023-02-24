@@ -69,6 +69,9 @@ export class OfferEntity extends defaultClasses.TimeStamps {
 
   @prop({type: () => String, required: true})
   public coordinates!: string[];
+
+  @prop({default: 0})
+  public commentCount!: number;
 }
 
 export const OfferModel = getModelForClass(OfferEntity);
