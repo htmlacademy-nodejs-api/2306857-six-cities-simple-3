@@ -134,7 +134,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoiYXNkYWRAZ21haWw3LmNvbSIsImlkIjoiNjNmNDdlNWY3ZDYwYWZhYTEyOGM3ZTdlIiwiaWF0IjoxNjc3MjQ3OTU0LCJleHAiOjE2Nzc0MjA3NTR9.MztAIUhO6aJQgF922e-Zbax743vQ5DCSMbWu8Mmma2A
 
 {
-  "text": "Привет 7",
+  "text": "Привет 8",
   "offerId": "63f8c5e72f2a42e1508d933e",
   "rating": 5
 }
