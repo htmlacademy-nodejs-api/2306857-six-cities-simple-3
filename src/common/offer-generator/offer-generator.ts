@@ -21,7 +21,7 @@ export default class OfferGenerator implements OfferGeneratorInterface {
       .toISOString();
     const city = getRandomItem<string>(this.mockData.cities);
     const preview = getRandomItem<string>(this.mockData.preview);
-    const photo = getRandomItems<string>(this.mockData.photos);
+    const photo = getRandomItems<string>(this.mockData.photos).join(';');
     const isPremium = Math.random() < 0.5;
     const rating = generateRandomValue(RatingRange.min, RatingRange.max);
     const typeAccommodation = getRandomItem([
@@ -33,7 +33,7 @@ export default class OfferGenerator implements OfferGeneratorInterface {
     const numberRooms = generateRandomValue(RoomsRange.min, RoomsRange.max);
     const numberGuests = generateRandomValue(GuestsRange.min, GuestsRange.max);
     const rentalPrice = generateRandomValue(RentalPriceRange.min, RentalPriceRange.max);
-    const facilities = getRandomItems<string>(this.mockData.facilities);
+    const facilities = getRandomItems<string>(this.mockData.facilities).join(';');
     const name = getRandomItem<string>(this.mockData.users);
     const mail = getRandomItem<string>(this.mockData.emails);
     const avatar = getRandomItem<string>(this.mockData.avatars);
